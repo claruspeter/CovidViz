@@ -1,0 +1,26 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="form">
+            <p onchange="calcRe()" title="The unchecked infection ratio/factor (+ve number)"><label>R0</label><input id="r0"> </p>
+            <p onchange="calcRe()" title="The proportion vaccinated (%)" ><label>X</label><input id="x"> </p>
+            <p onchange="calcRe()" title="The vaccine efficacy (%)"><label>Ve</label><input id="ve"> </p>
+        </div>
+        <div id="result">
+            <p title="The effective infection ratio"><label>Re</label><span id="re"></span></p>
+        </div>
+
+        <script type="text/javascript">
+            function calcRe() {
+                const r0 = Number(document.getElementById("r0").value)
+                const x = Number(document.getElementById("x").value)
+                const ve = Number(document.getElementById("ve").value)
+                const re = r0 * (1.0 - (x * ve) )
+                document.getElementById("re").innerText = re
+                return re
+            }
+        </script>
+    </body>
+</html>
